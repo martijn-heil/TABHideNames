@@ -1,0 +1,6 @@
+name: TABHideNames
+version: @version@
+author: Ninjoh
+depend: [NinCommands, TAB]
+main: com.gitlab.martijn_heil.tabhidenames.TABHideNames
+api-version: 1.18
