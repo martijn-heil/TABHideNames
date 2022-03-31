@@ -78,10 +78,12 @@ class TABHideNames : JavaPlugin() {
 
         server.scheduler.scheduleSyncRepeatingTask(this, {
             server.onlinePlayers
+                    .asSequence()
                     .map { it.TABPlayer }
                     .filter { it.hasHideNameTags }
                     .forEach { observer ->
                         server.onlinePlayers
+                                .asSequence()
                                 .map { it.TABPlayer }
                                 .forEach { TAPI.teamManager.hideNametag(it, observer) }
                     }
