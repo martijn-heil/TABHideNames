@@ -46,8 +46,8 @@ var TabPlayer.hasHideNameTags
             playersWithNameTagsHidden.add(uniqueId)
         } else {
             playersWithNameTagsHidden.remove(uniqueId)
-            Bukkit.getServer().onlinePlayers.map { it.TABPlayer }.forEach { observer ->
-                Bukkit.getServer().onlinePlayers.map { it.TABPlayer }.forEach {
+            Bukkit.getServer().onlinePlayers.mapNotNull { it.TABPlayer }.forEach { observer ->
+                Bukkit.getServer().onlinePlayers.mapNotNull { it.TABPlayer }.forEach {
                     TAPI.teamManager.showNametag(it, observer)
                 }
             }
@@ -79,12 +79,12 @@ class TABHideNames : JavaPlugin() {
         server.scheduler.scheduleSyncRepeatingTask(this, {
             server.onlinePlayers
                     .asSequence()
-                    .map { it.TABPlayer }
+                    .mapNotNull { it.TABPlayer }
                     .filter { it.hasHideNameTags }
                     .forEach { observer ->
                         server.onlinePlayers
                                 .asSequence()
-                                .map { it.TABPlayer }
+                                .mapNotNull { it.TABPlayer }
                                 .forEach { TAPI.teamManager.hideNametag(it, observer) }
                     }
         }, 0, 1)
