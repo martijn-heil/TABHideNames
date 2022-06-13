@@ -36,7 +36,7 @@ import java.util.UUID
 
 val playersWithNameTagsHidden = HashSet<UUID>()
 
-val Player.TABPlayer: TabPlayer
+val Player.TABPlayer: TabPlayer?
     get() = TAPI.getPlayer(uniqueId)
 
 var TabPlayer.hasHideNameTags

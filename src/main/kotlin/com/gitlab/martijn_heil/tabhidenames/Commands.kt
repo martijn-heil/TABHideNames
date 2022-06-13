@@ -27,24 +27,24 @@ class Commands {
     @Command(aliases = ["hidename"], desc = "Hide a player's name tag from everyone")
     @Require("tabhidenames.hidename")
     fun hidename(@CommandTarget("tabhidenames.hidename.others") target: Player) {
-        TAPI.teamManager.hideNametag(target.TABPlayer)
+        TAPI.teamManager.hideNametag(target.TABPlayer!!)
     }
 
     @Command(aliases = ["showname"], desc = "Show a player's name tag from everyone")
     @Require("tabhidenames.showname")
     fun showname(@CommandTarget("tabhidenames.showname.others") target: Player) {
-        TAPI.teamManager.showNametag(target.TABPlayer)
+        TAPI.teamManager.showNametag(target.TABPlayer!!)
     }
 
     @Command(aliases = ["hidenametags"], desc = "Hide nametags from other players from your yourself")
     @Require("tabhidenames.hidenametags")
     fun hidenametags(@CommandTarget("tabhidenames.hidenametags.others") target: Player) {
-        target.TABPlayer.hasHideNameTags = true
+        target.TABPlayer!!.hasHideNameTags = true
     }
 
     @Command(aliases = ["shownametags"], desc = "Unhide nametags from other players from your yourself")
     @Require("tabhidenames.shownametags")
     fun shownametags(@CommandTarget("tabhidenames.shownametags.others") target: Player) {
-        target.TABPlayer.hasHideNameTags = false
+        target.TABPlayer!!.hasHideNameTags = false
     }
 }
