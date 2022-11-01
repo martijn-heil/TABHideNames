@@ -81,7 +81,7 @@ idea {
 dependencies {
     implementation("org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT") { isChanging = true }
     implementation("me.neznamy:tab-api:3.0.2")
-    implementation("com.gitlab.martijn-heil:NinCommands:-SNAPSHOT") { isChanging = true }
+    implementation("com.gitlab.martijn-heil:NinCommands:1.0-SNAPSHOT") { isChanging = true }
     //compileOnly(fileTree("lib") { include("*.jar") })
     shadow(kotlin("stdlib"))
 }
